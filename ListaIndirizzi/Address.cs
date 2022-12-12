@@ -19,21 +19,16 @@ namespace ListaIndirizzi
 
         public int? ZIP { get; set; }
 
-        public static int Count { get; set; } = 0;          //Questo attributo statico permette di contare il numero delle persone presenti nel file CVS
-
         //------------ COSTRUTTORI ------------ //
 
-        public Address() : base()
-        {
-            Count++;
-        }
+        public Address() : base(){}
 
         //---------- Definizioni dei metodi ---------- //
 
         //Metodo che stampa a video tutte le informazioni
-        public void Print()
+        public void Print(int num)
         {
-            Console.WriteLine("--------------------- Address " + Count + " ----------------------");
+            Console.WriteLine("--------------------- Address " + num + " ----------------------");
             Console.WriteLine();
             if (this.City == "") 
             {
@@ -48,7 +43,7 @@ namespace ListaIndirizzi
             }
             else
             {
-                Console.WriteLine("Province" + this.Province);
+                Console.WriteLine("Province: " + this.Province);
             }
             Console.WriteLine();
             if (this.Street == "")
@@ -69,7 +64,7 @@ namespace ListaIndirizzi
                 Console.WriteLine("ZIP code: " + this.ZIP);
             }
             Console.WriteLine();
-            Console.WriteLine("---------------------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine();
         }
     }

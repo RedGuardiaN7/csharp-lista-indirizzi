@@ -8,7 +8,7 @@ try
 
     List<object> AddressList = new List<object>();
 
-    StreamReader file = File.OpenText("F:/Users/Artiom/Desktop/Esercizi GIT/ListaIndirizzi/ListaIndirizzi/addresses.csv");
+    StreamReader file = File.OpenText("addresses.csv");
 
     file.ReadLine();    //Viene saltata la prima riga, che non contiene informazioni
 
@@ -34,26 +34,20 @@ try
         if (ReadWords.Length > 6) {
             FinalReadWords[0] = ReadWords[0];
             FinalReadWords[1] = ReadWords[1];
-            string CorrectedStreet = ReadWords[2] + ReadWords[3];
+            string CorrectedStreet = ReadWords[2] + " " + ReadWords[3];
             FinalReadWords[2] = CorrectedStreet;
             FinalReadWords[3] = ReadWords[4];
             FinalReadWords[4] = ReadWords[5];
             FinalReadWords[5] = ReadWords[6];   
-        } 
-        
-        //Se invece la riga presenta meno informazioni del dovuto, si presuppone che siano state inserite le parti più essenziali (nome, città, provincia, ZIP)
-        if (ReadWords.Length < 6)
-        {
+        } else if (ReadWords.Length < 6)                            //Se invece la riga presenta meno informazioni del dovuto, si presuppone che siano state inserite 
+        {                                                           //
             FinalReadWords[0] = ReadWords[0];
             FinalReadWords[1] = "";
             FinalReadWords[2] = "";
             FinalReadWords[3] = ReadWords[1];
             FinalReadWords[4] = ReadWords[2];
             FinalReadWords[5] = ReadWords[3];
-
-        //Altrimenti, se tutto è regolare, viene semplicemente creata una copia
-
-        } else { ReadWords.CopyTo(FinalReadWords, 0); }
+        } else { ReadWords.CopyTo(FinalReadWords, 0); }             //Altrimenti, se tutto è regolare, viene semplicemente creata una copia
 
         //Ora che la riga è stata divisa e "scritta" in un array temporaneo
         //verranno assegnati i vari attributi dell'oggetto ReadPerson leggendo le stringhe dell'array appena creato
@@ -63,7 +57,6 @@ try
         ReadPerson.City = FinalReadWords[3];
         ReadPerson.Province = FinalReadWords[4];
         ReadPerson.ZIP = Int32.Parse(FinalReadWords[5]);
-        Console.WriteLine(FinalReadWords[0]);
 
         //Avendo tutte le informazioni neccessarie, ora è possibile aggiungere l'oggetto alla lista
 
@@ -74,9 +67,12 @@ try
 
     //Chiuso il file, vengono stampati a video tutti gli oggetti all'interno della nsotra lista
 
+    int i = 1;
     foreach (Person Person in AddressList) 
     {
-        Person.Print();
+        
+        Person.Print(i);
+        i++;
     }
 
 }

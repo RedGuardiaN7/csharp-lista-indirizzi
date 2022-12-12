@@ -17,17 +17,14 @@ namespace ListaIndirizzi
 
 
         //------------ COSTRUTTORI ------------ //
-        public Person() : base()
-        {
-            Count++;
-        }
+        public Person() : base(){}
 
         //---------- Definizioni dei metodi ---------- //
 
         //Metodo che stampa a video tutte le informazioni del prodotto (override del address.cs)
-        public virtual void Print()
+        public virtual void Print(int num)
         {
-            Console.WriteLine("--------------------- Person " + Count + " ----------------------");
+            Console.WriteLine("--------------------- Person " + num + " ----------------------");
             Console.WriteLine();
             if (this.Name == "")
             {
@@ -47,7 +44,6 @@ namespace ListaIndirizzi
                 Console.WriteLine("Surname: " + this.Surname);
             }
             Console.WriteLine();
-            Console.WriteLine();
             if (this.City == "")
             {
                 Console.WriteLine("City: not specified");
@@ -63,7 +59,7 @@ namespace ListaIndirizzi
             }
             else
             {
-                Console.WriteLine("Province" + this.Province);
+                Console.WriteLine("Province: " + this.Province);
             }
             Console.WriteLine();
             if (this.Street == "")
@@ -84,7 +80,7 @@ namespace ListaIndirizzi
                 Console.WriteLine("ZIP code: " + this.ZIP);
             }
             Console.WriteLine();
-            Console.WriteLine("---------------------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine();
 
         }
