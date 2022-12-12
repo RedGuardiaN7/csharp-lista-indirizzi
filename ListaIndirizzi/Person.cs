@@ -6,18 +6,88 @@ using System.Threading.Tasks;
 
 namespace ListaIndirizzi
 {
-    internal class Address
+    public class Person : Address
     {
 
         //Attributi
 
-        public string? Street { get; set; }
+        public string? Name { get; set; }
 
-        public string? City { get; set; }
+        public string? Surname { get; set; }
 
-        public string? Provnice { get; set; }
 
-        public string? ZIP { get; set; }
+        //------------ COSTRUTTORI ------------ //
+        public Person() : base()
+        {
+            Count++;
+        }
+
+        //---------- Definizioni dei metodi ---------- //
+
+        //Metodo che stampa a video tutte le informazioni del prodotto (override del address.cs)
+        public virtual void Print()
+        {
+            Console.WriteLine("--------------------- Person " + Count + " ----------------------");
+            Console.WriteLine();
+            if (this.Name == "")
+            {
+                Console.WriteLine("Name: not specified");
+            }
+            else
+            {
+                Console.WriteLine("Name: " + this.Name);
+            }
+            Console.WriteLine();
+            if (this.Surname == "")
+            {
+                Console.WriteLine("Surname: not specified");
+            }
+            else
+            {
+                Console.WriteLine("Surname: " + this.Surname);
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            if (this.City == "")
+            {
+                Console.WriteLine("City: not specified");
+            }
+            else
+            {
+                Console.WriteLine("City: " + this.City);
+            }
+            Console.WriteLine();
+            if (this.Province == "")
+            {
+                Console.WriteLine("Province: not specified");
+            }
+            else
+            {
+                Console.WriteLine("Province" + this.Province);
+            }
+            Console.WriteLine();
+            if (this.Street == "")
+            {
+                Console.WriteLine("Street: not specified");
+            }
+            else
+            {
+                Console.WriteLine("Street: " + this.Street);
+            }
+            Console.WriteLine();
+            if (this.ZIP == 0)
+            {
+                Console.WriteLine("ZIP: not specified");
+            }
+            else
+            {
+                Console.WriteLine("ZIP code: " + this.ZIP);
+            }
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.WriteLine();
+
+        }
 
     }
 }
